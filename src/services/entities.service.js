@@ -2,7 +2,7 @@ import Factory from "../models/Factory.js"
 
 class EntitiesService {
     constructor() {
-        this.model = Factory.get("Fs")
+        this.model = Factory.get("FS")
     }
 
     entitiesWelcome = async () => {
@@ -10,54 +10,25 @@ class EntitiesService {
         return msg
     }
 
-    // numsWelcome = async () => {
-    //     const msg = await this.model.numsWelcome()
-    //     return msg
-    // }
+    postEntities = async (entity) => {
+        const newEntity = await this.model.postEntities(entity)
+        return newEntity
+    }
 
-    // postNums = async (num) => {
-    //     const newNum = await this.model.postNums(num)
-    //     return newNum
-    // }
+    getAllEntities = async () => {
+        const entities = await this.model.getAllEntities()
+        return entities
+    }
 
-    // getAllNums =  async () => {
-    //     const nums = await this.model.getAllNums()
-    //     return nums
-    // }
+    getEntitiesCant = async () => {
+        const cantEntities = await this.model.getEntitiesCant()
+        return cantEntities
+    }
 
-    // getNumsProm = async () => {
-    //     const promedioNums = await this.model.getNumsProm()
-    //     return promedioNums
-    // }
-
-    // getNumsMinMax = async () => {
-    //     const minMax = await this.model.getNumsMinMax()
-    //     return minMax
-    // }
-
-    // getNumsCant = async () => {
-    //     const cantNums = await this.model.getNumsCant()
-    //     return cantNums
-    // }
-
-    // // Fuera de consigna ...
-    // getNumsById = async (identificador) => {
-    //     const numById = await this.model.getNumsById(identificador)
-    //     return  numById
-    // }
-
-    // putNums = async (identificador, num) => {
-    //     return this.model.putNums(identificador, num)
-    // }
-
-    // patchNums = async (identificador, num) => {
-    //     return this.model.patchNums(identificador, num)
-    // }
-
-    // deleteNums = async (identificador) => {
-    //     return this.model.deleteNums(identificador)
-    // }
-
+    deleteEntities = async (identificador) => {
+        return this.model.deleteEntities(identificador)
+    }
 }
 
 export default EntitiesService
+
