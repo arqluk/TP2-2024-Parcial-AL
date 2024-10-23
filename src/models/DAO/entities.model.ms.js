@@ -29,7 +29,7 @@ class EntitiesMsModel {
 
     deleteEntities = async (identificador) => {
         const index = this.entities.findIndex((entity) => entity.id == identificador)
-        if (index == -1) throw new Error("El id de la transaccion no existe.")
+        if (index == -1) throw Error("El id de la transaccion no existe.")
         this.entities.splice(index, 1)
         return "La transaccion fue eliminada exitosamente"
     }

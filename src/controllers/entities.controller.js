@@ -26,10 +26,21 @@ class EntitiesController {
         res.send(cantEntities)
     }
 
+    // deleteEntities = async (req, res) => {
+    //     const { id } = req.params
+    //     const deleteEntity = await this.service.deleteEntities(id)
+    //     res.send(deleteEntity)
+    // }
+
     deleteEntities = async (req, res) => {
-        const { id } = req.params
-        const deleteEntity = await this.service.deleteEntities(id)
-        res.send(deleteEntity)
+        try {
+            const { id } = req.params
+            const deleteEntity = await this.service.deleteEntities(id)
+            res.send(deleteEntity) 
+        } catch (error) {
+           res.send({ errorMsg: error.message})
+        }
+        
     }
 }
 

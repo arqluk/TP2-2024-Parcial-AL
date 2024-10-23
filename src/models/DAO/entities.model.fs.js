@@ -42,7 +42,7 @@ class EntitiesFsModel {
         let entitiesJs = await fs.promises.readFile(this.entities, "utf-8")
         entitiesJs = JSON.parse(entitiesJs)
         const index = entitiesJs.findIndex((entity) => entity.id == identificador)
-        if (index == -1) throw new Error("El id del elemento no existe.")
+        if (index == -1) throw Error("El id del elemento no existe.")
         entitiesJs.splice(index, 1)
         await fs.promises.writeFile(this.entities, JSON.stringify(entitiesJs, null, 2))
         return "La transaccion fue eliminada exitosamente"

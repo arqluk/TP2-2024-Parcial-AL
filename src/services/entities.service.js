@@ -2,7 +2,7 @@ import Factory from "../models/Factory.js"
 
 class EntitiesService {
     constructor() {
-        this.model = Factory.get("FS")
+        this.model = Factory.get("MS")
     }
 
     entitiesWelcome = async () => {
@@ -26,7 +26,12 @@ class EntitiesService {
     }
 
     deleteEntities = async (identificador) => {
-        return this.model.deleteEntities(identificador)
+        try {
+            return this.model.deleteEntities(identificador) 
+        } catch (error) {
+            throw error
+        }
+        
     }
 }
 
